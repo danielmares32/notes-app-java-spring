@@ -1,0 +1,66 @@
+ <!-- Background image -->
+ <div class="relative overflow-hidden bg-no-repeat bg-cover" style="
+ background-position: 50%;
+ background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/146.webp');
+ height: 350px;
+ ">
+ <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
+ style="background-color: rgba(0, 0, 0, 0.75)">
+ <div class="flex justify-center items-center h-full">
+     <div class="text-center text-white px-6 md:px-12">
+     <h1 class="text-5xl font-bold mt-0 mb-6">My Notes</h1>
+     
+     </div>
+ </div>
+ </div>
+ </div>
+ <!-- Background image -->
+
+<div class="flex flex-col m-8">
+    
+    <button class="mx-14 bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded" (click)="openDialog()">
+        <div class="flex justify-center center">
+            
+            <p>New Note</p>
+        </div>
+    </button>
+    
+    <button class="my-5 mx-14 bg-transparent hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded" (click)="showhidearchived()">
+        <div class="flex justify-center center">
+            
+            <p>Go/Return to Archive Notes</p>
+        </div>
+    </button>
+    
+    <div class="flex">
+        <ul>
+            <li *ngFor="let note of notes; index as i;">
+            <div class="nota flex flex-col">
+                <h2 class="font-bold">{{note.title}}</h2>
+                <p class="grow">{{note.content}}</p>
+                <div class="mt-5 flex flex-row-reverse ">
+                    <div class="basis-[12.5%]">
+                        <button class="bg-beige-300 hover:bg-red-900 hover:text-white font-bold py-2 px-4 rounded" (click)="deleteNote(note.id)">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
+                    <div class="basis-[12.5%]">
+                        <button class="bg-beige-300 hover:bg-lime-800 hover:text-white font-bold py-2 px-4 rounded" (click)="archiveNote(note)">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                        </button>
+                    </div>
+                    <div class="basis-[12.5%]">
+                        <button class="bg-beige-300 hover:bg-blue-400 hover:text-white font-bold py-2 px-4 rounded" (click)="openDialogEdit(note)">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </li>
+            
+            
+        </ul>
+    </div>
+    
+</div>
+
